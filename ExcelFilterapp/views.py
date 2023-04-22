@@ -125,8 +125,8 @@ def active_inactive_count(request):
     active_count = Product.objects.filter(enable__in=['Yes', 'Y']).count()
     inactive_count = Product.objects.exclude(enable__in=['Yes', 'Y']).count()
     field_names=["ActiveCount","InactiveCount"]
-
-    result=[[10,20]]
+    datals=[active_count,inactive_count]
+    result=[datals]
     return render(request, 'view_details.html', {'field_names': field_names, 'data': result})
 
 def avg_price(request):
@@ -135,5 +135,19 @@ def avg_price(request):
     result = Product.objects.values('category_l1', 'category_l2').annotate(avg_price=models.Avg('price'))
     field_names=["L1","L2","Average"]
     print(result)
-    result=[['TOP','PANTIES','115'],['TOP','PANTS','200']]
-    return render(request, 'view_details.html', {'field_names': field_names, 'data': result})
+    ls=[]
+    masterls=[]
+    for resulti in result:
+        print(resulti)
+        print(type(resulti))
+        print(resulti['category_l1'])
+        ls.append(resulti['category_l1'])
+        ls.append(resulti['category_l2'])
+        ls.append(str(resulti['avg_price']))
+        print(ls)
+        masterls.append(ls)
+        ls=[]
+    print(masterls)
+    #result=[masterls]
+    #result=[['TOP','PANTIES','115'],['TOP','PANTS','200']]
+    return render(request, 'view_details.html', {'field_names': field_names, 'data': masterls})
