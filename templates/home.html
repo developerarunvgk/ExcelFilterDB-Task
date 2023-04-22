@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <title>Schedule Site Crawling</title>
+	    <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Amethysta' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Caesar+Dressing' rel='stylesheet' type='text/css'>
+    <style>
+        
+        body{
+            background-image: url('https://cdn.pixabay.com/photo/2017/03/28/22/55/night-photograph-2183637_1280.jpg');
+            background-size: auto;
+        }
+        label{
+            color: rgb(253, 14, 161);
+        }
+span#anima {
+  color: #000;
+  font-family: 'Caesar Dressing', cursive;
+  font-size: 20px;
+  text-transform: lowercase;
+  vertical-align: middle;
+}
+
+.fire {
+  animation: animation 1s ease-in-out infinite alternate;
+  -moz-animation: animation 1s ease-in-out infinite alternate;
+  -webkit-animation: animation 1s ease-in-out infinite alternate;
+  -o-animation: animation 1s ease-in-out infinite alternate;
+}
+
+.burn {
+  animation: animation .65s ease-in-out infinite alternate;
+  -moz-animation: animation .65s ease-in-out infinite alternate;
+  -webkit-animation: animation .65s ease-in-out infinite alternate;
+  -o-animation: animation .65s ease-in-out infinite alternate;
+}
+
+@keyframes animation
+{
+0% {text-shadow: 0 0 20px #fefcc9,
+  10px -10px 30px #feec85,
+  -20px -20px 40px #ffae34,
+  20px -40px 50px #ec760c,
+  -20px -60px 60px #cd4606,
+  0 -80px 70px #973716,
+  10px -90px 80px #451b0e;}
+100% {text-shadow: 0 0 20px #fefcc9,
+  10px -10px 30px #fefcc9,
+  -20px -20px 40px #feec85,
+  22px -42px 60px #ffae34,
+  -22px -58px 50px #ec760c,
+  0 -82px 80px #cd4606,
+  10px -90px 80px  #973716;}
+}
+
+        #firetext {
+        font-family: “Open Sans”, sans-serif;
+        color: #f5f5f5;
+        text-shadow: 0px -2px 4px #fff, 0px -2px 10px #FF3, 0px -10px 20px         #F90, 0px -20px 40px #C33;
+        font-size: 30px;
+        }
+
+        #bid,button{
+            color: red;
+            font-weight: 100;
+            font-size: larger;
+        }
+    input {max-width: 21em}
+
+    #formdata{
+        margin-left: 12em;
+    }
+    
+	.container-fluid{
+background-color: #bf12de;
+}
+
+.container-fluid{
+background-color: black;
+}
+    </style>
+    </head>
+    <body>
+	      
+    </div>
+
+        <h1 id='firetext'>Excel Data </h1>
+	      
+        <ul class="list-group">
+          <li class="list-group-item"><a href="http://127.0.0.1:8000/load_data/">Truncate and Load Data</a></li>
+          <li class="list-group-item"><a href="http://127.0.0.1:8000/view_data/">Data</a></li>
+          <li class="list-group-item"><a href="http://127.0.0.1:8000/avg_price/">Avg_price</li>
+          <li class="list-group-item"><a href="http://127.0.0.1:8000/top-parent-view/">Top-parent-view</a></li>
+          <li class="list-group-item"><a href="http://127.0.0.1:8000/children-view/">Children-view</a></li>
+          <li class="list-group-item"><a href="http://127.0.0.1:8000/active-inactive-count/">Active-inactive-count</a></li>
+  
+        </ul>
+  
+    </div>
+    </body>
+</html>

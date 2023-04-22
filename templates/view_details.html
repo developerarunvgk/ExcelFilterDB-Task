@@ -1,0 +1,118 @@
+<html>
+    <head>
+        <title>View Excel Filtered Data</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      
+    <style>
+        body{
+            background-image: url('https://cdn.pixabay.com/photo/2017/11/07/20/43/christmas-tree-2928142_1280.jpg');
+            background-size: auto;
+        }
+        label{
+            color: blueviolet;
+        }
+        h1,td{
+            color:  darkorchid;
+        }
+        #bid,button,th{
+            color: red;
+            font-weight: 100;
+            font-size: larger;
+        }
+    input {max-width: 21em}
+
+    #formdata{
+        margin-left: 12em;
+    }
+	#filter_column{
+	            color:  darkorchid;
+	}
+	
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+table tr:nth-child(even){background-color: black;}
+
+table tr:hover {background-color: #ddd;}
+
+td, th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.container-fluid{
+background-color: #bf12de;
+}
+
+.container-fluid{
+background-color: black;
+}
+    
+li:hover {background-color: green;}
+	
+    </style>
+    </head>
+    <body>
+      
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Excel Data Tasks</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="http://127.0.0.1:8000/view_data/">Data</a></li>
+        <li><a href="http://127.0.0.1:8000/avg_price/">avg_price</a></li>
+        <li><a href="http://127.0.0.1:8000/top-parent-view/">top-parent-view</a></li>
+        <li><a href="http://127.0.0.1:8000/children-view/">children-view</a></li>
+        <li><a href="http://127.0.0.1:8000/active-inactive-count/">active-inactive-count</a></li>
+
+        
+      </ul>
+    </div>
+  </nav>
+    
+  <div class="container1">
+  <h2 id="filter_column">Filter Data</h2>
+  <input class="form-control" id="myInput" type="text" placeholder="Search..">
+  <br>
+  </div>
+    
+        <div>
+            <h1>DataModels</h1>
+            <table>
+                <thead>
+                {% for head in field_names %}
+                   <th>{{ head }}</th>
+                {% endfor %}
+                </thead>
+                <tbody id="myTable">
+                {% for row in data %}
+                    <tr>
+                    {% for cell in row %}
+                        <td>{{ cell }}</td>
+                    {% endfor %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+	<script>
+	$(document).ready(function(){
+	$("#myInput").on("keyup", function() {
+		//alert('am here');
+		var value = $(this).val().toLowerCase();
+		console.log(value);
+		$("#myTable tr").filter(function() {
+		$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+		});
+	});
+	});
+	</script>
+    </body>
+</html>
