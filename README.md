@@ -15,3 +15,5 @@ Proceed with Validations
 
 Refer Screenshot_Output for the Result outputs
 
+DB used is sqllite.
+It can be modifed to any of the common RDMS by changing the settings in settings.py of Django.
